@@ -1,0 +1,86 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scenes/Box.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/World.gd" type="Script" id=4]
+
+[sub_resource type="SegmentShape2D" id=1]
+b = Vector2( 0, 128 )
+
+[sub_resource type="SegmentShape2D" id=2]
+a = Vector2( 256, 0 )
+b = Vector2( 256, 128 )
+
+[sub_resource type="SegmentShape2D" id=3]
+b = Vector2( 256, 0 )
+
+[sub_resource type="SegmentShape2D" id=4]
+b = Vector2( 256, 0 )
+
+[node name="World" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Button5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 171.773, 62.5708 )
+
+[node name="Button6" parent="." instance=ExtResource( 2 )]
+position = Vector2( 208.814, 27.4537 )
+
+[node name="Button7" parent="." instance=ExtResource( 2 )]
+position = Vector2( 70.7507, 80.8509 )
+
+[node name="Button2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 193.421, 80.8508 )
+
+[node name="Button4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 115.008, 90.9531 )
+
+[node name="Button3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 36.5961, 87.1046 )
+
+[node name="Button8" parent="." instance=ExtResource( 2 )]
+position = Vector2( 214.586, 58.2413 )
+
+[node name="Button" parent="." instance=ExtResource( 2 )]
+position = Vector2( 102.751, 40.8004 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 13.3963, 10.2217 )
+
+[node name="Box" parent="." instance=ExtResource( 1 )]
+position = Vector2( 158.412, 72.1174 )
+can_sleep = false
+
+[node name="Wall" type="StaticBody2D" parent="."]
+
+[node name="Left" type="CollisionShape2D" parent="Wall"]
+shape = SubResource( 1 )
+
+[node name="Right" type="CollisionShape2D" parent="Wall"]
+shape = SubResource( 2 )
+
+[node name="Up" type="CollisionShape2D" parent="Wall"]
+shape = SubResource( 3 )
+
+[node name="Down" type="CollisionShape2D" parent="Wall"]
+position = Vector2( -2.40528, 128.962 )
+shape = SubResource( 4 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WinText" type="RichTextLabel" parent="Control"]
+margin_left = 145.279
+margin_top = 204.449
+margin_right = 401.279
+margin_bottom = 332.449
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Thing" type="RigidBody2D" parent="."]
